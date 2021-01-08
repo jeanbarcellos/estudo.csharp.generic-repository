@@ -10,7 +10,7 @@ namespace GenericRepository.Repositories
 
         public Task<Author> GetByName(string name)
         {
-            return context.Set<Author>().FirstOrDefaultAsync(author => author.Name == name);
+            return FindByCondition(author => author.Name == name);
         }
 
     }

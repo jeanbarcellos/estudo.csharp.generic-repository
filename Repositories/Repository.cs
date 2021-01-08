@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using GenericRepository.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,5 +48,9 @@ namespace GenericRepository.Repositories
             entities.Remove(entity);
             context.SaveChanges();
         }
+
+        public Task<T> FindByCondition(Expression<Func<T, bool>> predicate)
+           => context.Set<T>().FirstOrDefaultAsync(predicate);
+
     }
 }
