@@ -1,6 +1,6 @@
 using System;
 
-namespace GenericRepository.Modelos
+namespace GenericRepository.Models
 {
     public class User
     {

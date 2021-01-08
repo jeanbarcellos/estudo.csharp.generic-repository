@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace GenericRepository.Modelos
+namespace GenericRepository.Models
 {
     public class UserDbContext : DbContext
     {
