@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace generic_repository
+namespace GenericRepository
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace generic_repository
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "generic_repository", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GenericRepository", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace generic_repository
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "generic_repository v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GenericRepository v1"));
             }
 
             app.UseHttpsRedirection();

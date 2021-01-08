@@ -1,6 +1,6 @@
 using System;
 
-namespace generic_repository
+namespace GenericRepository
 {
     public class WeatherForecast
     {
