@@ -38,6 +38,7 @@ namespace GenericRepository.Repositories
         public void Update(T entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
+            context.Entry<T>(entity).State = EntityState.Modified;
             context.SaveChanges();
         }
         public void Delete(Guid id)

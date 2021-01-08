@@ -23,17 +23,22 @@ namespace GenericRepository.Controllers
         public IEnumerable<Book> GetAllBooks() => bookRepository.GetAll();
 
         [HttpGet]
-        [Route("{bookId}")]
-        public Book GetBookById(Guid bookId) => bookRepository.GetById(bookId);
+        [Route("{id}")]
+        public Book GetBookById(Guid id) => bookRepository.GetById(id);
 
         [HttpPost]
         [Route("")]
         [AllowAnonymous]
         public void AddBook([FromBody] Book book) => bookRepository.Insert(book);
 
-        [HttpDelete]
-        [Route("{bookId}")]
+        [HttpPut]
+        [Route("{id}")]
         [AllowAnonymous]
-        public void DeleteBook(Guid bookId) => bookRepository.Delete(bookId);
+        public void UpdateBook([FromBody] Book book) => bookRepository.Update(book);
+
+        [HttpDelete]
+        [Route("{id}")]
+        [AllowAnonymous]
+        public void DeleteBook(Guid id) => bookRepository.Delete(id);
     }
 }
