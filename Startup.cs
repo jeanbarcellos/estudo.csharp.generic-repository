@@ -23,6 +23,8 @@ namespace GenericRepository
             services.AddDbContext<DatabaseContext>(opts => opts.UseInMemoryDatabase("database"));
             services.AddScoped<DatabaseContext>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
