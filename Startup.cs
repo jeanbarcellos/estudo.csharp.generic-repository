@@ -24,7 +24,7 @@ namespace GenericRepository
             services.AddScoped<DatabaseContext>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IAuthorRepository, AuthorRepository>();
-
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
