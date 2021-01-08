@@ -33,13 +33,13 @@ namespace GenericRepository.Repositories
             if (entity == null) throw new ArgumentNullException("entity");
 
             entities.Add(entity);
-            context.SaveChanges();
+            // context.SaveChanges();
         }
         public void Update(T entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
             context.Entry<T>(entity).State = EntityState.Modified;
-            context.SaveChanges();
+            // context.SaveChanges();
         }
         public void Delete(Guid id)
         {
@@ -47,7 +47,7 @@ namespace GenericRepository.Repositories
 
             T entity = entities.SingleOrDefault(s => s.Id == id);
             entities.Remove(entity);
-            context.SaveChanges();
+            // context.SaveChanges();
         }
 
         public Task<T> FindByCondition(Expression<Func<T, bool>> predicate)

@@ -24,8 +24,14 @@ namespace GenericRepository.Repositories
         }
 
         public void Commit()
-        { _databaseContext.SaveChanges(); }
+        {
+            _databaseContext.SaveChanges();
+        }
 
         public void Rollback()
-        { _databaseContext.Dispose(); }
+        {
+            _databaseContext.Dispose();
+        }
     }
+
+}
