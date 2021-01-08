@@ -42,7 +42,7 @@ namespace GenericRepository.Controllers
         [AllowAnonymous]
         public IActionResult AddBook([FromBody] Book book)
         {
-            _logger.LogInformation("Add Book for BookId: {BookId}", book.BookId);
+            _logger.LogInformation("Add Book for BookId: {BookId}", book.Id);
             _database.AddBook(book);
             return Ok(book);
         }
