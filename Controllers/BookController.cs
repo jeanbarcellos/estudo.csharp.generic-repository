@@ -11,34 +11,34 @@ namespace GenericRepository.Controllers
     [Route("[controller]")]
     public class BookController : ControllerBase
     {
-        private IRepository<Book> bookRepository;
+        private IRepository<Book> _bookRepository;
 
         public BookController(IRepository<Book> bookRepository)
         {
-            this.bookRepository = bookRepository;
+            _bookRepository = bookRepository;
         }
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<Book> GetAllBooks() => bookRepository.GetAll();
-
-        [HttpGet]
-        [Route("{id}")]
-        public Book GetBookById(Guid id) => bookRepository.GetById(id);
+        public IEnumerable<Book> GetAllBooks() => _bookRepository.GetAll();
 
         [HttpPost]
         [Route("")]
         [AllowAnonymous]
-        public void AddBook([FromBody] Book book) => bookRepository.Insert(book);
+        public void InsertBook([FromBody] Book book) => _bookRepository.Insert(book);
+
+        [HttpGet]
+        [Route("{id}")]
+        public Book GetBookById(Guid id) => _bookRepository.GetById(id);
 
         [HttpPut]
         [Route("{id}")]
         [AllowAnonymous]
-        public void UpdateBook([FromBody] Book book) => bookRepository.Update(book);
+        public void UpdateBook([FromBody] Book book) => _bookRepository.Update(book);
 
         [HttpDelete]
         [Route("{id}")]
         [AllowAnonymous]
-        public void DeleteBook(Guid id) => bookRepository.Delete(id);
+        public void DeleteBook(Guid id) => _bookRepository.Delete(id);
     }
 }

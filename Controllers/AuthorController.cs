@@ -15,16 +15,28 @@ namespace GenericRepository.Controllers
         private IAuthorRepository _authorRepository;
 
         public AuthorController(IAuthorRepository authorRepository)
-        { _authorRepository = authorRepository; }
+        {
+            _authorRepository = authorRepository;
+        }
 
         [HttpGet("")]
         public IEnumerable<Author> GetAllAuthots() => _authorRepository.GetAll();
 
-        [HttpGet("{authorName}")]
-        public Task<Author> GetAuthorByName(String authorName) => _authorRepository.GetByName(authorName);
-
         [HttpPost("")]
         [AllowAnonymous]
-        public void AddAuthor([FromBody] Author author) => _authorRepository.Insert(author);
+        public void InsertAuthor([FromBody] Author author) => _authorRepository.Insert(author);
+
+        [HttpGet("{name}")]
+        public Task<Author> GetAuthorByName(String name) => _authorRepository.GetByName(name);
+
+        [HttpPut]
+        [Route("{id}")]
+        [AllowAnonymous]
+        public void UpdateAuthor([FromBody] Author author) => _authorRepository.Update(author);
+
+        [HttpDelete]
+        [Route("{id}")]
+        [AllowAnonymous]
+        public void DeleteAuthor(Guid id) => _authorRepository.Delete(id);
     }
 }
