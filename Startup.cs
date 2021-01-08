@@ -20,8 +20,8 @@ namespace GenericRepository
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UserDbContext>(opts => opts.UseInMemoryDatabase("userDB"));
-            services.AddScoped<UserDbContext>();
+            services.AddDbContext<DatabaseContext>(opts => opts.UseInMemoryDatabase("database"));
+            services.AddScoped<DatabaseContext>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
