@@ -8,7 +8,7 @@ using GenericRepository.Services;
 namespace GenericRepository.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("users")]
     public class BookController : ControllerBase
     {
         private IBookService _bookService;
@@ -30,18 +30,18 @@ namespace GenericRepository.Controllers
             _bookService.InsertBook(book);
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id:guid}")]
         public Book GetBookById(Guid id) =>
             _bookService.GetBookById(id);
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("{id:guid}")]
         [AllowAnonymous]
         public void UpdateBook([FromBody] Book book) =>
             _bookService.UpdateBook(book);
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("{id:guid}")]
         [AllowAnonymous]
         public void DeleteBook(Guid id) =>
             _bookService.DeleteBook(id);
